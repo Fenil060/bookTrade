@@ -1,5 +1,6 @@
 body {
   font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
 }
 
 button,
@@ -26,22 +27,23 @@ textarea {
 /* Grid */
 .book-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
 }
 
 /* Card */
 .book-card {
   background: #ffffff;
   border-radius: 12px;
-  padding: 12px;
+  padding: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 
   display: flex;
   flex-direction: column;
 
-  aspect-ratio: 1 / 1;   
+  /* Remove fixed aspect-ratio for flexible height */
+  /* aspect-ratio: 1 / 1; */
 }
 
 .book-card:hover {
@@ -51,26 +53,28 @@ textarea {
 
 /* Image */
 .book-image {
-  width: 100%;
+  width: 75%;
   height: 200px;
   object-fit: cover;
   border-radius: 8px;
   background: #eee;
-  padding:20px;
+  /* Remove padding from image, add margin if needed */
+  padding: 0px;
+  margin-bottom: 20px;
 }
 
 /* Text */
 .book-title {
   font-size: 16px;
   font-weight: 600;
-  margin-top: 12px;
+  margin: 0 0 10px 0; /* reduce spacing */
   color: #222;
 }
 
 .book-author {
   font-size: 16px;
   color: #666;
-  margin-top: 4px;
+  margin: 0 0 10px 0; /* reduced spacing */
 }
 
 /* Footer */
@@ -78,8 +82,8 @@ textarea {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: auto;
-  padding-top: 12px;
+  padding-top: 0;
+  margin-top: 20px; /* remove auto so it’s just below author */
 }
 
 .book-price {
