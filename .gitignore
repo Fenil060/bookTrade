@@ -1,0 +1,7 @@
+# Environment files
+backend/.env
+frontend/book-exchange-frontend/.env
+
+# Node modules
+backend/node_modules/
+frontend/book-exchange-frontend/node_modules/

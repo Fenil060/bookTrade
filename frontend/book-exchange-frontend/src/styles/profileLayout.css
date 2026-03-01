@@ -1,0 +1,63 @@
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+.profile-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f4f6f8;
+}
+
+/* Sidebar */
+.profile-sidebar {
+  width: 260px;
+  background: #ffffff;
+  padding: 30px 20px;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+}
+
+.profile-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: #202124;
+}
+
+.profile-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.profile-link {
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  color: #555;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.profile-link:hover {
+  background-color: #f0f2f5;
+}
+
+/* Active NavLink */
+.profile-link.active {
+  background-color: #1a73e8;
+  color: white;
+}
+
+/* Content */
+.profile-content {
+  flex: 1;
+  padding: 40px;
+}

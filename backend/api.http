@@ -1,0 +1,116 @@
+### Register-user1
+POST http://localhost:8080/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Fenil",
+  "email": "fenil@gmail.com",
+  "password": "123456",
+  "phone": "1234567890"
+}
+
+### Register-user2
+POST http://localhost:8080/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Fenil01",
+  "email": "fenil01@gmail.com",
+  "password": "123456",
+  "phone": "9313011111"
+}
+
+###
+
+### Login-user1
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "fenil@gmail.com",
+  "password": "123456"
+}
+
+### Login-user2
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "fenil01@gmail.com",
+  "password": "123456"
+}
+
+###
+
+### Get Profile
+GET http://localhost:8080/api/auth/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5N2IzMzI0ZjEzYzVhYjBkMzJhMWNiZiIsImlhdCI6MTc2OTY4MTc3NywiZXhwIjoxNzcwMjg2NTc3fQ.tO-bCGPH35BM0vh_RCgb1XpNJbf9m7stSwT5a2lFIvQ
+
+
+### Create Book (Protected)
+POST http://localhost:8080/api/books
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ODY2MGVkOWY4YTkzMzFjMjExNjg5MyIsImlhdCI6MTc3MDQ2OTA2NSwiZXhwIjoxNzcxMDczODY1fQ.JdRHeHetjbCdDTWnCSolLmS2ZGcVsPb8PnghpLuSL84
+
+{
+  "title": "fenil Code",
+  "author": "Robert C. Martin",
+  "price": 450,
+  "condition": "good",
+  "images": [
+    "img1.jpg",
+    "img2.jpg"
+  ]
+}
+
+###
+
+### Get All Books (Public)
+GET http://localhost:8080/api/books
+
+
+###edit  book
+PUT http://localhost:8080/api/books/697b36f0393674af865ff64f
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5N2IzMzI0ZjEzYzVhYjBkMzJhMWNiZiIsImlhdCI6MTc2OTY4MTc3NywiZXhwIjoxNzcwMjg2NTc3fQ.tO-bCGPH35BM0vh_RCgb1XpNJbf9m7stSwT5a2lFIvQ
+Content-Type: application/json
+
+{
+  "price": 299,
+  "condition": "poor"
+}
+
+###delete book
+DELETE http://localhost:8080/api/books/697c8b41906aa82ba7b69d6a
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5N2IzMzI0ZjEzYzVhYjBkMzJhMWNiZiIsImlhdCI6MTc2OTY4MTc3NywiZXhwIjoxNzcwMjg2NTc3fQ.tO-bCGPH35BM0vh_RCgb1XpNJbf9m7stSwT5a2lFIvQ
+
+
+###request routes
+POST http://localhost:8080/api/requests/697c96634380f7bd439d3352
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5N2M4ZTFjMzhlNTJkNTI0YWQ4MjYwMyIsImlhdCI6MTc2OTc3MzE3OSwiZXhwIjoxNzcwMzc3OTc5fQ.3PXBQEt9Vkuj-gBAXUYuaAxIyV8wW7IDSiisYGJeZMo
+
+###Approve (seller)
+PUT http://localhost:8080/api/requests/697c99bdd76d44cda26fd591/approve
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5N2IzMzI0ZjEzYzVhYjBkMzJhMWNiZiIsImlhdCI6MTc2OTc3MzM0NSwiZXhwIjoxNzcwMzc4MTQ1fQ.r0Ozz4tCqQuUeg0e2gqUEZ0JfhFYRUCAJgN2FBZmKUA
+
+###Reject (seller)
+PUT http://localhost:8080/api/requests/697c98ac4380f7bd439d3379/reject
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5N2IzMzI0ZjEzYzVhYjBkMzJhMWNiZiIsImlhdCI6MTc2OTc3MzM0NSwiZXhwIjoxNzcwMzc4MTQ1fQ.r0Ozz4tCqQuUeg0e2gqUEZ0JfhFYRUCAJgN2FBZmKUA
+
+###Cancel (buyer)
+PUT http://localhost:8080/api/requests/REQUEST_ID/cancel
+Authorization: Bearer BUYER_TOKEN
+
+
+###Fetch messages
+GET http://localhost:8080/api/chat/697c99bdd76d44cda26fd591
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5N2M4ZTFjMzhlNTJkNTI0YWQ4MjYwMyIsImlhdCI6MTc2OTc3MzE3OSwiZXhwIjoxNzcwMzc3OTc5fQ.3PXBQEt9Vkuj-gBAXUYuaAxIyV8wW7IDSiisYGJeZMo
+
+###Send message
+POST http://localhost:8080/api/chat
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5N2M4ZTFjMzhlNTJkNTI0YWQ4MjYwMyIsImlhdCI6MTc2OTc3MzE3OSwiZXhwIjoxNzcwMzc3OTc5fQ.3PXBQEt9Vkuj-gBAXUYuaAxIyV8wW7IDSiisYGJeZMo
+Content-Type: application/json
+
+{
+  "requestId": "697c99bdd76d44cda26fd591",
+  "message": "Hi, when can we meet?"
+}

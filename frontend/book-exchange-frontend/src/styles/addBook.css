@@ -1,0 +1,104 @@
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+/* Page Background */
+.add-book-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f9fa;
+  padding: 20px;
+}
+
+/* Card Container */
+.add-book-card {
+  width: 100%;
+  max-width: 520px;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* Heading */
+.add-book-card h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 22px;
+  color: #202124;
+  font-weight: 600;
+}
+
+/* Form Layout */
+.add-book-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.add-book-form input,
+.add-book-form select {
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  outline: none;
+  font-family: inherit;
+}
+
+/* Focus Effect */
+.add-book-form input:focus,
+.add-book-form select:focus {
+  border-color: #1a73e8;
+  box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.15);
+}
+
+/* File Input */
+.add-book-form input[type="file"] {
+  border: none;
+  padding: 6px;
+}
+
+/* Submit Button */
+.add-book-form button {
+  margin-top: 10px;
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  background-color: #1a73e8;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Hover Effect */
+.add-book-form button:hover {
+  background-color: #1557b0;
+  transform: translateY(-1px);
+}
+
+/* Disabled Button */
+.add-book-form button:disabled {
+  background-color: #9ec2ff;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .add-book-card {
+    padding: 22px;
+  }
+}
