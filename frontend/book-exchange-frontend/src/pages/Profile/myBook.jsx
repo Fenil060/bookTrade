@@ -1,9 +1,11 @@
 import { useOutletContext } from "react-router-dom";
 import { deleteBook } from "../../api/book.api.js";
 import "../../styles/myBook.css";
+import { useNavigate } from "react-router-dom";
 
 export default function MyBooks() {
   const { myBooks, setMyBooks } = useOutletContext();
+  const navigate = useNavigate();
 
   const books = myBooks || [];
 
@@ -50,7 +52,7 @@ export default function MyBooks() {
           <div className="book-actions">
             <button
               className="edit-btn"
-              onClick={() => console.log("Edit", book._id)}
+              onClick={() => navigate(`/edit-book/${book._id}`)}
             >
               Edit
             </button>

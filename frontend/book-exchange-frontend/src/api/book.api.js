@@ -29,3 +29,8 @@ export const addBook = async (bookData) => {
 
   return res.data;
 };
+
+export const editBook = async (id, bookData) => {
+  const res = await clientServer.put( `/api/books/${id}`, bookData,);
+  return res.data;
+};

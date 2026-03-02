@@ -9,6 +9,7 @@ import ProfileLayout from "./pages/Profile/profileLayout";
 import PrivateRoute from "./component/privateRoute";
 import MyBooks from "./pages/Profile/myBook";
 import AddBook from "./pages/addBook";
+import EditBook from "./pages/editBook";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="my-books" element={<MyBooks />} />
         </Route>
         <Route path="/addBook" element={<AddBook />} />
+        <Route path="/edit-book/:id" element={<PrivateRoute> <EditBook /> </PrivateRoute>}/>
       </Routes>
     </BrowserRouter>
   );

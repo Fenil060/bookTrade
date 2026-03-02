@@ -52,7 +52,7 @@ export const createBook = async (req, res) => {
   }
 };
 
-export const editBook = async(req, res) => {
+export const editBook = async (req, res) => {
   try {
     const book = await Book.findById(req.params.id);
 
@@ -60,7 +60,7 @@ export const editBook = async(req, res) => {
       return res.status(404).json({ message: "Book not found" });
     }
 
-    // only owner
+    // only owner can edit
     if (book.ownerId.toString() !== req.user.id) {
       return res.status(403).json({ message: "Not authorized" });
     }
@@ -72,17 +72,29 @@ export const editBook = async(req, res) => {
       });
     }
 
-    const updatedBook = await Book.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      { new: true, runValidators: true }
-    );
+    // Allowed editable fields only
+    const allowedFields = [
+      "title",
+      "author",
+      "price",
+      "condition",
+    ];
+
+    allowedFields.forEach((field) => {
+      if (req.body[field] !== undefined) {
+        book[field] = req.body[field];
+      }
+    });
+
+
+    const updatedBook = await book.save();
 
     res.json(updatedBook);
+
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
-}
+};
 
 
 export const deleteBook = async (req, res) => {
