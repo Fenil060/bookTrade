@@ -3,6 +3,8 @@ import { AuthContext } from "../context/AuthContext";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getBookById } from "../api/book.api";
+import { sendRequest } from "../api/request.api";
+import { useNavigate } from "react-router-dom";
 import "../styles/bookdetail.css";
 
 const BookDetail = () => {
@@ -12,6 +14,26 @@ const BookDetail = () => {
   const [book, setBook] = useState(null);
   const [activeImg, setActiveImg] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [requestLoading, setRequestLoading] = useState(false);
+  const navigate = useNavigate();
+
+  const handleRequest = async () => {
+  try {
+    setRequestLoading(true);
+
+    const data = await sendRequest(book._id);
+
+    alert(data.message || "Request sent successfully");
+
+    // redirect after success
+    navigate("/");
+
+  } catch (err) {
+    alert(err.response?.data?.message || "Error sending request");
+  } finally {
+    setRequestLoading(false);
+  }
+};
 
   useEffect(() => {
     async function fetchBook() {
@@ -82,7 +104,16 @@ const BookDetail = () => {
           <span className="value">{book.condition}</span>
         </div>
 
-        {isLoggedIn && (<button className="request-btn">Request Book</button>)}
+        {isLoggedIn && user &&
+          book.ownerId?._id !== user._id && (
+        <button
+          className="request-btn"
+          onClick={handleRequest}
+          disabled={requestLoading}
+        >
+          {requestLoading ? "Sending..." : "Request Book"}
+        </button>
+        )}
       </div>
     </div>
     </div>

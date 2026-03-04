@@ -3,30 +3,22 @@ import Book from "../models/Book.js";
 
 export const requestBook = async (req, res) => {
   try {
-    const book = await Book.findById(req.params.bookId);
+    const book = await Book.findOne({
+      _id: req.params.bookId,
+      status: "available",
+      activeRequest: null
+    });
 
     if (!book) {
-      return res.status(404).json({ message: "Book not found" });
+      return res.status(400).json({
+        message: "Book is not available or already requested"
+      });
     }
 
     // cannot request own book
     if (book.ownerId.toString() === req.user.id) {
       return res.status(400).json({
         message: "You cannot request your own book"
-      });
-    }
-
-    // only available books
-    if (book.status !== "available") {
-      return res.status(400).json({
-        message: "Book is not available"
-      });
-    }
-
-    // active request check
-    if (book.activeRequest) {
-      return res.status(400).json({
-        message: "This book already has an active request"
       });
     }
 
@@ -37,12 +29,15 @@ export const requestBook = async (req, res) => {
       status: "pending"
     });
 
-    // update book
     book.status = "requested";
     book.activeRequest = request._id;
     await book.save();
 
-    res.status(201).json(request);
+    res.status(201).json({
+      message: "Request sent successfully",
+      request
+    });
+
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
