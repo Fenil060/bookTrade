@@ -13,7 +13,7 @@ const RequestsSent = () => {
   const fetchRequests = async () => {
     try {
       const data = await getSentRequests();
-      setRequests(data.requests);   // IMPORTANT
+      setRequests(data.requests);
     } catch (err) {
       console.error(err);
     } finally {
@@ -25,7 +25,6 @@ const RequestsSent = () => {
     try {
       await cancelRequest(id);
 
-      // Update UI instantly (better than refetch)
       setRequests(prev =>
         prev.map(r =>
           r._id === id ? { ...r, status: "cancelled" } : r
@@ -45,16 +44,19 @@ const RequestsSent = () => {
   return (
     <div className="requests-sent">
 
-      <div className="request-header">
+      {/* Header */}
+      <div className="sent-header">
         <span>Book Title</span>
         <span>Seller Name</span>
         <span>Price</span>
         <span>Status</span>
         <span>Action</span>
+        <span>Payment Mode</span>
       </div>
 
+      {/* Rows */}
       {requests.map((req) => (
-        <div key={req._id} className="request-row">
+        <div key={req._id} className="sent-row">
 
           <span>{req.bookId?.title}</span>
 
@@ -62,14 +64,14 @@ const RequestsSent = () => {
 
           <span>₹{req.bookId?.price}</span>
 
-          <span className={`status ${req.status}`}>
+          <span className={`sent-status ${req.status}`}>
             {req.status}
           </span>
 
           <span>
             {req.status === "pending" ? (
               <button
-                className="cancel-btn"
+                className="sent-cancel-btn"
                 onClick={() => handleCancel(req._id)}
               >
                 Cancel
@@ -78,6 +80,34 @@ const RequestsSent = () => {
               "-"
             )}
           </span>
+
+          <span>
+            {req.status === "approved" && !req.paymentMode && (
+              <>
+                <button
+                  className="sent-online-btn"
+                  onClick={() => choosePayment(req._id, "online")}
+                >
+                  Online
+                </button>
+
+                <button
+                  className="sent-offline-btn"
+                  onClick={() => choosePayment(req._id, "offline")}
+                >
+                  Offline
+                </button>
+              </>
+            )}
+
+            {req.paymentMode && (
+              <span className={`sent-payment ${req.paymentMode}`}>
+                {req.paymentMode}
+              </span>
+            )}
+
+            {req.status !== "approved" && !req.paymentMode && "-"}
+      </span>
 
         </div>
       ))}

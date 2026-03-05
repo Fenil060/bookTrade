@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
-import {getReceivedRequests,approveRequest,rejectRequest} from "../../api/request.api";
+import {
+  getReceivedRequests,
+  approveRequest,
+  rejectRequest
+} from "../../api/request.api";
 import "../../styles/requestReceived.css";
 
 const RequestsReceived = () => {
@@ -26,7 +30,6 @@ const RequestsReceived = () => {
     try {
       await approveRequest(id);
 
-      // instant UI update
       setRequests(prev =>
         prev.map(r =>
           r._id === id ? { ...r, status: "approved" } : r
@@ -61,52 +64,58 @@ const RequestsReceived = () => {
   return (
     <div className="requests-received">
 
-  <div className="received-header">
-    <span>Book Title</span>
-    <span>Buyer Name</span>
-    <span>Price</span>
-    <span>Action</span>
-  </div>
+      {/* HEADER */}
+      <div className="received-header">
+        <span>Book Title</span>
+        <span>Buyer Name</span>
+        <span>Price</span>
+        <span>Action</span>
+      </div>
 
-  {requests.map((req) => (
-    <div key={req._id} className="received-row">
+      {/* ROWS */}
+      {requests.map((req) => (
+        <div key={req._id} className="received-row">
 
-      <span>{req.bookId?.title}</span>
+          <span>{req.bookId?.title}</span>
 
-      <span>{req.buyerId?.name}</span>
+          <span>{req.buyerId?.name}</span>
 
-      <span>₹{req.bookId?.price}</span>
+          <span>₹{req.bookId?.price}</span>
 
-      <span>
-        {req.status === "pending" && (
-          <>
-            <button
-              className="approve-btn"
-              onClick={() => handleApprove(req._id)}
-            >
-              Approve
-            </button>
+          <span>
+            {req.status === "pending" && (
+              <>
+                <button
+                  className="received-approve-btn"
+                  onClick={() => handleApprove(req._id)}
+                >
+                  Approve
+                </button>
 
-            <button
-              className="reject-btn"
-              onClick={() => handleReject(req._id)}
-            >
-              Reject
-            </button>
-          </>
-        )}
+                <button
+                  className="received-reject-btn"
+                  onClick={() => handleReject(req._id)}
+                >
+                  Reject
+                </button>
+              </>
+            )}
 
-        {req.status === "approved" && (
-          <span className="received-status approved">Approved</span>
-        )}
+            {req.status === "approved" && (
+              <span className="received-status approved">
+                Approved
+              </span>
+            )}
 
-        {req.status === "cancelled" && (
-          <span className="received-status cancelled">Rejected</span>
-        )}
-      </span>
+            {req.status === "cancelled" && (
+              <span className="received-status cancelled">
+                Rejected
+              </span>
+            )}
+          </span>
 
-    </div>
-  ))}
+        </div>
+      ))}
     </div>
   );
 };
