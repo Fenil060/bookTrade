@@ -11,6 +11,7 @@ import MyBooks from "./pages/Profile/myBook";
 import AddBook from "./pages/addBook";
 import EditBook from "./pages/editBook";
 import RequestsSent from "./pages/Profile/requestSend";
+import RequestsReceived from "./pages/Profile/requestReceived";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<PrivateRoute><ProfileLayout /></PrivateRoute>}>
           <Route path="my-books" element={<MyBooks />} />
+          <Route path="requests-received" element={<RequestsReceived />} />
           <Route path="requests-sent" element={<RequestsSent />} />
         </Route>
         <Route path="/addBook" element={<AddBook />} />

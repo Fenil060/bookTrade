@@ -18,3 +18,18 @@ export const cancelRequest = async (requestId) => {
   );
   return res.data; // { message: "Request cancelled" }
 };
+
+export const getReceivedRequests = async () => {
+  const res = await clientServer.get("/api/requests/received");
+  return res.data; // { count, requests }
+};
+
+export const approveRequest = async (requestId) => {
+  const res = await clientServer.put(`/api/requests/${requestId}/approve`);
+  return res.data; // { message: "Request approved" }
+}
+
+export const rejectRequest = async (requestId) => {
+  const res = await clientServer.put(`/api/requests/${requestId}/reject`);
+  return res.data; // { message: "Request rejected" }
+}
