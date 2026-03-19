@@ -12,6 +12,7 @@ import AddBook from "./pages/addBook";
 import EditBook from "./pages/editBook";
 import RequestsSent from "./pages/Profile/requestSend";
 import RequestsReceived from "./pages/Profile/requestReceived";
+import ProfileChats from "./pages/Profile/profileChats";
 
 function App() {
   return (
@@ -22,10 +23,11 @@ function App() {
         <Route path="/books/:id" element={<BookDetail />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/profile" element={<PrivateRoute><ProfileLayout /></PrivateRoute>}>
+        <Route path="/profile" element={<ProfileLayout />}>
           <Route path="my-books" element={<MyBooks />} />
           <Route path="requests-received" element={<RequestsReceived />} />
           <Route path="requests-sent" element={<RequestsSent />} />
+          <Route path="chats" element={<ProfileChats />} />
         </Route>
         <Route path="/addBook" element={<AddBook />} />
         <Route path="/edit-book/:id" element={<PrivateRoute> <EditBook /> </PrivateRoute>}/>

@@ -118,13 +118,13 @@ export const getProfile = async (req, res) => {
     //  Requests received as seller
     const receivedRequests = await Request.find({ sellerId: userId })
       .populate("bookId", "title author price condition status")
-      .populate("buyerId", "name email")
+      .populate("buyerId", "name email phone")
       .sort({ createdAt: -1 });
 
     //  Requests sent as buyer
     const sentRequests = await Request.find({ buyerId: userId })
       .populate("bookId", "title author price condition status")
-      .populate("sellerId", "name email")
+      .populate("sellerId", "name email phone")
       .sort({ createdAt: -1 });
 
     // Return everything in one response

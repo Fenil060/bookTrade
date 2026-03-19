@@ -24,18 +24,17 @@ io.on("connection", (socket) => {
     console.log(`Joined room ${requestId}`);
   });
 
-  socket.on("sendMessage", (data) => {
-    io.to(data.requestId).emit("receiveMessage", data);
+  socket.on("sendMessage", (msg) => {
+    // emit to everyone EXCEPT sender
+    socket.to(msg.requestId.toString()).emit("receiveMessage", msg);
   });
 
-  socket.on("disconnect", () => {
-    console.log("User disconnected");
-  });
+  socket.on("disconnect", () => console.log("User disconnected"));
 });
 
 // Connect DB first, then start server
 connectDB().then(() => {
-  app.listen(PORT, () => {
+  server.listen(PORT, () => {
     console.log(` Server running on port ${PORT}`);
   });
 });

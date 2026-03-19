@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { getSentRequests, cancelRequest } from "../../api/request.api";
+import { getSentRequests, cancelRequest, choosePaymentMode } from "../../api/request.api";
 import "../../styles/requestSend.css";
 
 const RequestsSent = () => {
   const [requests, setRequests] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [loadingId, setLoadingId] = useState(null);
 
   useEffect(() => {
     fetchRequests();
@@ -30,9 +31,26 @@ const RequestsSent = () => {
           r._id === id ? { ...r, status: "cancelled" } : r
         )
       );
-
     } catch (err) {
       alert(err.response?.data?.message);
+    }
+  };
+
+  const choosePayment = async (id, mode) => {
+    try {
+      setLoadingId(id);
+
+      await choosePaymentMode(id, mode);
+
+      setRequests(prev =>
+        prev.map(r =>
+          r._id === id ? { ...r, paymentMode: mode } : r
+        )
+      );
+    } catch (err) {
+      alert(err.response?.data?.message);
+    } finally {
+      setLoadingId(null);
     }
   };
 
@@ -68,6 +86,7 @@ const RequestsSent = () => {
             {req.status}
           </span>
 
+          {/* Cancel Button */}
           <span>
             {req.status === "pending" ? (
               <button
@@ -81,34 +100,56 @@ const RequestsSent = () => {
             )}
           </span>
 
-          <span>
-            {req.status === "approved" && !req.paymentMode && (
-              <>
-                <button
-                  className="sent-online-btn"
-                  onClick={() => choosePayment(req._id, "online")}
-                >
-                  Online
-                </button>
+          {/* Payment Column */}
+            <span>
+              {/* Show buttons only if approved and not selected */}
+              {req.status === "approved" && !req.paymentMode && (
+                <>
+                  <button
+                    disabled={loadingId === req._id}
+                    className="sent-online-btn"
+                    onClick={() => choosePayment(req._id, "online")}
+                  >
+                    {loadingId === req._id ? "..." : "Online"}
+                  </button>
 
-                <button
-                  className="sent-offline-btn"
-                  onClick={() => choosePayment(req._id, "offline")}
-                >
-                  Offline
-                </button>
-              </>
-            )}
+                  <button
+                    disabled={loadingId === req._id}
+                    className="sent-offline-btn"
+                    onClick={() => choosePayment(req._id, "offline")}
+                  >
+                    {loadingId === req._id ? "..." : "Offline"}
+                  </button>
+                </>
+              )}
 
-            {req.paymentMode && (
-              <span className={`sent-payment ${req.paymentMode}`}>
-                {req.paymentMode}
-              </span>
-            )}
+              {/* Show selected mode */}
+              {req.paymentMode && (
+                <>
+                  {req.paymentMode === "online" ? (
+                    <span className="sent-payment online">
+                      Online | {req.sellerId?.phone || "N/A"}
+                    </span>
+                  ) : (
+                    <span className="sent-payment offline">
+                      Offline | <button
+                        className="go-to-chat-btn"
+                        onClick={() => {
+                          // Navigate to chat section
+                          // Replace with your navigation logic, e.g., react-router
+                          window.location.href = `/profile/chats?requestId=${req._id}`;
+                        }}
+                      >
+                        Go to Chat
+                      </button>
+                    </span>
+                  )}
+                </>
+              )}
 
-            {req.status !== "approved" && !req.paymentMode && "-"}
-      </span>
-
+              {/* Default fallback */}
+              {(req.status === "pending" || req.status === "cancelled") && "-"}
+            </span>
         </div>
       ))}
     </div>

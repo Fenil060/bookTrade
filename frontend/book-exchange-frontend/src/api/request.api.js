@@ -33,3 +33,13 @@ export const rejectRequest = async (requestId) => {
   const res = await clientServer.put(`/api/requests/${requestId}/reject`);
   return res.data; // { message: "Request rejected" }
 }
+
+export const choosePaymentMode = async (requestId, mode) => {
+  const res = await clientServer.put(`/api/requests/${requestId}/payment-mode`, { paymentMode: mode });
+  return res.data; // { message: "Payment mode chosen" }
+}
+
+export const markAsPaid = async (requestId) => {
+  const res = await clientServer.put(`/api/requests/${requestId}/mark-paid`);
+  return res.data; // { message: "Marked as paid" }
+}

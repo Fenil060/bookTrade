@@ -211,7 +211,7 @@ export const getSentRequests = async (req, res) => {
 
     const requests = await Request.find({ buyerId: userId })
       .populate("bookId", "title author price condition status")
-      .populate("sellerId", "name email")
+      .populate("sellerId", "name email phone")
       .sort({ createdAt: -1 });
 
     res.json({ count: requests.length, requests });

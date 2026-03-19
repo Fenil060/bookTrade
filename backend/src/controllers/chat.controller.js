@@ -10,7 +10,7 @@ export const sendMessage = async (req, res) => {
     return res.status(404).json({ message: "Request not found" });
   }
 
-  if (request.status !== "approved") {
+  if (request.status === "cancelled") {
     return res.status(403).json({ message: "Chat not allowed" });
   }
 
@@ -37,7 +37,7 @@ export const getMessages = async (req, res) => {
 
   const request = await Request.findById(requestId);
 
-  if (!request || request.status !== "approved") {
+  if (!request || request.status === "cancelled") {
     return res.status(403).json({ message: "Chat not allowed" });
   }
 
