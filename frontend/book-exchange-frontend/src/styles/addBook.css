@@ -97,8 +97,46 @@ textarea {
 }
 
 /* Responsive */
+/* Mobile Responsive */
 @media (max-width: 600px) {
+  .add-book-wrapper {
+    padding: 10px;
+    align-items: flex-start;
+  }
+
   .add-book-card {
-    padding: 22px;
+    width: 100%;
+    max-width: 100%;
+    padding: 18px;
+    border-radius: 10px;
+    box-shadow: none; /* cleaner for mobile */
+  }
+
+  .add-book-card h2 {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  .add-book-form {
+    gap: 10px;
+  }
+
+  .add-book-form input,
+  .add-book-form select {
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 8px;
+  }
+
+  .add-book-form input[type="file"] {
+    padding: 4px;
+    font-size: 13px;
+  }
+
+  .add-book-form button {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    border-radius: 10px;
   }
 }

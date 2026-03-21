@@ -66,3 +66,37 @@ textarea {
 .auth-form span {
     color: #1a73e8;
 }
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .auth-container {
+    padding: 16px;
+    align-items: flex-start; /* better on mobile */
+  }
+
+  .auth-form {
+    max-width: 100%;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: none; /* cleaner mobile UI */
+  }
+
+  .auth-form h2 {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  .auth-form input {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .auth-form button {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .auth-form p {
+    font-size: 13px;
+  }
+}

@@ -124,3 +124,62 @@ textarea {
   background: #1557b0;
 }
 
+
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .detail-page {
+    padding: 20px 10px;
+  }
+
+  /* Stack layout (image on top, details below) */
+  .detail-container {
+    flex-direction: column;
+    gap: 20px;
+    padding: 16px;
+    border-radius: 10px;
+  }
+
+  /* Image */
+  .main-image {
+    height: 250px;
+  }
+
+  /* Thumbnails */
+  .thumb-row {
+    gap: 8px;
+    overflow-x: auto; /* scroll if many images */
+  }
+
+  .thumb {
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+  }
+
+  /* Text fields */
+  .title-field {
+    font-size: 18px;
+    margin-bottom: 14px;
+  }
+
+  .field {
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .field .label {
+    font-size: 12px;
+  }
+
+  .field .value {
+    font-size: 14px;
+  }
+
+  /* Button */
+  .request-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+  }
+}

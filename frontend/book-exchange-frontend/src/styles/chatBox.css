@@ -101,17 +101,38 @@
   border-radius: 3px;
 }
 
-/* Mobile responsiveness */
-@media (max-width: 768px) {
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .chat-box {
+    height: 100vh; /* full screen chat like apps */
+    border-radius: 0;
+  }
+
   .chat-messages {
     padding: 10px;
+    gap: 6px;
+  }
+
+  /* Message bubbles */
+  .my-message,
+  .other-message {
+    max-width: 85%; /* better use of space */
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+
+  /* Input area */
+  .chat-input {
+    padding: 8px 10px;
   }
 
   .chat-input input {
     font-size: 13px;
+    padding: 8px 12px;
   }
 
   .chat-input button {
-    padding: 8px 12px;
+    padding: 8px 10px;
+    font-size: 13px;
   }
 }

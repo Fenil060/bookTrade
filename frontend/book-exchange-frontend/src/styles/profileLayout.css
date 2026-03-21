@@ -61,3 +61,49 @@ textarea {
   flex: 1;
   padding: 40px;
 }
+
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .profile-container {
+    flex-direction: column; /* stack layout */
+  }
+
+  /* Sidebar becomes top horizontal menu */
+  .profile-sidebar {
+    width: 100%;
+    padding: 15px;
+    box-shadow: none;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .profile-title {
+    font-size: 16px;
+    margin-bottom: 12px;
+    text-align: center;
+  }
+
+  .profile-nav {
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 8px;
+  }
+
+  .profile-link {
+    white-space: nowrap;
+    font-size: 13px;
+    padding: 8px 12px;
+    background: #f1f3f4;
+    border-radius: 20px;
+  }
+
+  .profile-link.active {
+    background-color: #1a73e8;
+    color: #fff;
+  }
+
+  /* Content */
+  .profile-content {
+    padding: 16px;
+  }
+}

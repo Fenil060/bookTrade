@@ -113,3 +113,50 @@ textarea {
   cursor: pointer;
   font-weight: 500;
 }
+
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .bt-header {
+    padding: 0 16px;
+    height: 60px;
+  }
+
+  /* Logo smaller */
+  .logo {
+    font-size: 18px;
+  }
+
+  /* Hide center nav (or you can later add hamburger) */
+  .center-nav {
+    display: none;
+  }
+
+  /* Right section */
+  .right {
+    gap: 8px;
+  }
+
+  /* Auth buttons */
+  .auth-links {
+    gap: 6px;
+  }
+
+  .auth-links a {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  /* Profile */
+  .profile {
+    width: 30px;
+    height: 30px;
+    font-size: 13px;
+  }
+
+  /* Logout button */
+  .logout {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+}

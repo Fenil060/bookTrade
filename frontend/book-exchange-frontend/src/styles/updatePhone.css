@@ -1,0 +1,49 @@
+.change-phone {
+  max-width: 400px;
+}
+
+.change-phone h2 {
+  margin-bottom: 16px;
+}
+
+.change-phone input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.change-phone button {
+  padding: 10px 16px;
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .change-phone {
+    max-width: 100%;
+    padding: 16px;
+  }
+
+  .change-phone h2 {
+    font-size: 18px;
+    margin-bottom: 12px;
+    text-align: center;
+  }
+
+  .change-phone input {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .change-phone button {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+  }
+}

@@ -137,3 +137,48 @@ textarea {
 .auth-form iframe {
   margin: 0 auto;
 }
+
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .auth-container {
+    padding: 16px;
+    align-items: flex-start; /* better scroll on mobile */
+  }
+
+  .auth-form {
+    max-width: 100%;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: none; /* cleaner mobile UI */
+  }
+
+  /* Title */
+  .auth-form h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  /* Inputs */
+  .auth-form input {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+
+  /* Button */
+  .auth-form button {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  /* Divider */
+  .divider {
+    margin: 18px 0;
+    font-size: 12px;
+  }
+
+  /* Footer text */
+  .auth-form p {
+    font-size: 13px;
+  }
+}

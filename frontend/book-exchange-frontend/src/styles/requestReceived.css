@@ -56,3 +56,44 @@
   font-weight: 500;
   text-transform: capitalize;
 }
+
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  /* Hide table header */
+  .received-header {
+    display: none;
+  }
+
+  /* Convert row into card layout */
+  .received-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 14px;
+    margin-bottom: 12px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    background: #fff;
+  }
+
+  /* Each field becomes stacked */
+  .received-row div {
+    font-size: 13px;
+  }
+
+  /* Buttons full width */
+  .received-approve-btn,
+  .received-reject-btn {
+    width: 100%;
+    margin: 4px 0;
+    padding: 8px;
+    font-size: 13px;
+  }
+
+  /* Payment tag */
+  .received-payment {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+}

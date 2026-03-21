@@ -5,6 +5,7 @@ import Home from "./pages/home";
 import "./styles/book.css";
 import BookDetail from "./pages/bookdetail";
 import Header from "./component/header";
+import Footer from "./component/footer";
 import ProfileLayout from "./pages/Profile/profileLayout";
 import PrivateRoute from "./component/privateRoute";
 import MyBooks from "./pages/Profile/myBook";
@@ -13,6 +14,7 @@ import EditBook from "./pages/editBook";
 import RequestsSent from "./pages/Profile/requestSend";
 import RequestsReceived from "./pages/Profile/requestReceived";
 import ProfileChats from "./pages/Profile/profileChats";
+import ChangePhone from "./pages/Profile/updatePhone";
 
 function App() {
   return (
@@ -28,10 +30,12 @@ function App() {
           <Route path="requests-received" element={<RequestsReceived />} />
           <Route path="requests-sent" element={<RequestsSent />} />
           <Route path="chats" element={<ProfileChats />} />
+          <Route path="change-number" element={<ChangePhone />} />
         </Route>
         <Route path="/addBook" element={<AddBook />} />
         <Route path="/edit-book/:id" element={<PrivateRoute> <EditBook /> </PrivateRoute>}/>
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

@@ -18,7 +18,7 @@ export default function Header() {
   return (
     <header className="bt-header">
       {/* LOGO */}
-    <div className="logo">
+    <div className="logo" onClick={() => navigate("/")} >
         <span className="logo-book">Book</span>
         <span className="logo-trade">Trade</span>
     </div>

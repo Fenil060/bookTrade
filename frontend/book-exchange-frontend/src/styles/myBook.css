@@ -57,3 +57,38 @@ textarea {
   border-radius: 6px;
   cursor: pointer;
 }
+
+
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .books-grid {
+    grid-template-columns: 1fr; /* single column */
+    gap: 14px;
+  }
+
+  .book-card {
+    padding: 12px;
+    border-radius: 8px;
+  }
+
+  .book-image {
+    height: 180px;
+  }
+
+  .book-info {
+    margin-top: 8px;
+  }
+
+  .book-actions {
+    margin-top: 10px;
+    gap: 8px;
+  }
+
+  .edit-btn,
+  .delete-btn {
+    flex: 1; /* buttons take equal width */
+    padding: 8px;
+    font-size: 13px;
+  }
+}

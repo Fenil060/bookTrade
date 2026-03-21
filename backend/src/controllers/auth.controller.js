@@ -141,17 +141,40 @@ export const getProfile = async (req, res) => {
 };
 
 export const updatePhone = async (req, res) => {
-  const { phone } = req.body;
+  try {
+    const { phone } = req.body;
 
-  if (!phone) {
-    return res.status(400).json({ message: "Phone number required" });
+    // 1. Validate input
+    if (!phone) {
+      return res.status(400).json({ message: "Phone number is required" });
+    }
+
+    // Simple validation (10 digit Indian number)
+    const phoneRegex = /^[6-9]\d{9}$/;
+    if (!phoneRegex.test(phone)) {
+      return res.status(400).json({ message: "Invalid phone number" });
+    }
+
+    // 2. Check if phone already exists
+    const existingUser = await User.findOne({ phone });
+    if (existingUser) {
+      return res.status(400).json({ message: "Phone already in use" });
+    }
+
+    // 3. Update phone
+    const user = await User.findByIdAndUpdate(
+      req.user._id,
+      { phone },
+      { new: true, runValidators: true }
+    );
+
+    res.status(200).json({
+      message: "Phone number updated successfully",
+      user,
+    });
+
+  } catch (error) {
+    console.error("Update phone error:", error);
+    res.status(500).json({ message: "Server error" });
   }
-
-  const user = await User.findByIdAndUpdate(
-    req.user._id,
-    { phone },
-    { new: true }
-  );
-
-  res.json(user);
 };
