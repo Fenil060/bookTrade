@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const clientServer = axios.create({
-  baseURL: "http://localhost:8080",
+  baseURL: "https://booktrade-t2ng.onrender.com",
   headers: { "Content-Type": "application/json" },
 });
 
