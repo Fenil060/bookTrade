@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use(cors({
-  origin: "https://book-trade-daoj.vercel.app/", // your Vite frontend URL
+  origin: "https://book-trade-daoj.vercel.app", // your Vite frontend URL
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   credentials: true
 }));
