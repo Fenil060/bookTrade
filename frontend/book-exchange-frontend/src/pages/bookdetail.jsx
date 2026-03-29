@@ -26,7 +26,7 @@ const BookDetail = () => {
     alert(data.message || "Request sent successfully");
 
     // redirect after success
-    navigate("/");
+    navigate("/home");
 
   } catch (err) {
     alert(err.response?.data?.message || "Error sending request");

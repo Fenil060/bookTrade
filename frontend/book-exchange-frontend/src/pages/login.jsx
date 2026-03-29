@@ -32,7 +32,7 @@ const Login = () => {
 
       console.log("Login success", data);
 
-      navigate("/"); // or /books /dashboard
+      navigate("/home"); // or /books /dashboard
 
     } catch (err) {
       setError(err.response?.data?.message);

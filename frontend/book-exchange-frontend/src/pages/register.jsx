@@ -25,8 +25,8 @@ const Register = () => {
   e.preventDefault();
   try {
     const data = await registerUser(form);
-    login(data);
-    navigate("/");
+    // login(data);
+    navigate("/login");
   } catch (err) {
     alert(err.response?.data?.message || "Register failed");
   }
