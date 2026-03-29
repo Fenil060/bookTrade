@@ -129,7 +129,7 @@ textarea {
 
   /* Hide center nav (or you can later add hamburger) */
   .center-nav {
-    display: none;
+    font-size: smaller;
   }
 
   /* Right section */

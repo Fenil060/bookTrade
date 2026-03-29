@@ -15,13 +15,15 @@ import RequestsSent from "./pages/Profile/requestSend";
 import RequestsReceived from "./pages/Profile/requestReceived";
 import ProfileChats from "./pages/Profile/profileChats";
 import ChangePhone from "./pages/Profile/updatePhone";
+import LandingPage from "./pages/LandingPage";
 
 function App() {
   return (
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/books/:id" element={<BookDetail />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
@@ -32,7 +34,7 @@ function App() {
           <Route path="chats" element={<ProfileChats />} />
           <Route path="change-number" element={<ChangePhone />} />
         </Route>
-        <Route path="/addBook" element={<AddBook />} />
+        <Route path="/addBook" element={<PrivateRoute><AddBook /></PrivateRoute>} />
         <Route path="/edit-book/:id" element={<PrivateRoute> <EditBook /> </PrivateRoute>}/>
       </Routes>
       <Footer />
