@@ -34,7 +34,7 @@ function App() {
           <Route path="chats" element={<ProfileChats />} />
           <Route path="change-number" element={<ChangePhone />} />
         </Route>
-        <Route path="/addBook" element={<PrivateRoute><AddBook /></PrivateRoute>} />
+        <Route path="/addBook" element={<AddBook /> }/>
         <Route path="/edit-book/:id" element={<PrivateRoute> <EditBook /> </PrivateRoute>}/>
       </Routes>
       <Footer />

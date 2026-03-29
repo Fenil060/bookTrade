@@ -78,12 +78,6 @@ export default function LandingPage() {
       <section className="cta">
         <h3>Stop letting your books gather dust</h3>
         <div>
-          <button 
-            className="btn-primary"
-            onClick={() => navigate("/addBook")}
-          >
-            Sell Your First Book
-          </button>
 
           <button 
             className="btn-outline"
