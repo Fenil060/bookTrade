@@ -8,7 +8,7 @@ export default function LandingPage() {
   return (
     <div className="container">
 
-      {/* 🔥 Hero Section */}
+      {/*  Hero Section */}
       <section className="hero">
         <div className="hero-text">
           <h2>Turn Your Old Books Into Value</h2>

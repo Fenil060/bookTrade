@@ -1,6 +1,8 @@
 body {
   font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
+  background: #121212;
+  color: #EDEDED;
 }
 
 button,
@@ -13,7 +15,7 @@ textarea {
 /* Page */
 .home-container {
   min-height: 100vh;
-  background-color: #f5f6fa;
+  background-color: #121212;
   padding: 20px;
 }
 
@@ -21,60 +23,56 @@ textarea {
   font-size: 24px;
   font-weight: 600;
   margin-bottom: 20px;
-  color: #333;
+  color: #EDEDED;
 }
 
 /* Grid */
 .book-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  gap: 24px;
 }
 
 /* Card */
 .book-card {
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background: #1E1E1E;
+  border-radius: 14px;
+  padding: 12px;
+  border: 1px solid #2A2A2A;
+  transition: all 0.25s ease;
 
   display: flex;
   flex-direction: column;
-
-  /* Remove fixed aspect-ratio for flexible height */
-  /* aspect-ratio: 1 / 1; */
 }
 
 .book-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.12);
+  transform: translateY(-6px);
+  border-color: #3A3A3A;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
 }
 
 /* Image */
 .book-image {
-  width: 75%;
+  width: 100%;
   height: 200px;
   object-fit: cover;
-  border-radius: 8px;
-  background: #eee;
-  /* Remove padding from image, add margin if needed */
-  padding: 0px;
-  margin-bottom: 20px;
+  border-radius: 10px;
+  background: #2A2A2A;
+  margin-bottom: 14px;
 }
 
 /* Text */
 .book-title {
   font-size: 16px;
   font-weight: 600;
-  margin: 0 0 10px 0; /* reduce spacing */
-  color: #222;
+  margin: 0 0 6px 0;
+  color: #EDEDED;
 }
 
 .book-author {
-  font-size: 16px;
-  color: #666;
-  margin: 0 0 10px 0; /* reduced spacing */
+  font-size: 14px;
+  color: #A1A1A1;
+  margin: 0 0 10px 0;
 }
 
 /* Footer */
@@ -82,39 +80,43 @@ textarea {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 0;
-  margin-top: 20px; /* remove auto so it’s just below author */
+  margin-top: auto;
 }
 
+/* Price */
 .book-price {
-  color: #1a73e8;
+  color: #1A73E8;
   font-weight: 700;
+  font-size: 15px;
 }
 
+/* Condition Badge */
 .book-condition {
   font-size: 12px;
-  background: #e6f4ea;
-  color: #137333;
+  background: rgba(34, 197, 94, 0.15);
+  color: #22C55E;
   padding: 4px 8px;
   border-radius: 12px;
 }
 
+/* Button */
 .view-btn {
-  padding: 6px 10px;
+  margin-top: 10px;
+  padding: 8px 12px;
   font-size: 13px;
   border: none;
-  border-radius: 6px;
-  background-color: #1a73e8;
+  border-radius: 8px;
+  background-color: #1A73E8;
   color: white;
   cursor: pointer;
+  transition: 0.2s ease;
 }
 
 .view-btn:hover {
-  background-color: #1558c0;
+  background-color: #1665C1;
 }
 
-
-/********** Responsive **********//* Mobile Responsive */
+/********** Responsive **********/
 @media (max-width: 600px) {
   .home-container {
     padding: 12px;
@@ -125,39 +127,26 @@ textarea {
     margin-bottom: 14px;
   }
 
-  /* Grid: 1 column for mobile */
   .book-grid {
     grid-template-columns: 1fr;
     gap: 16px;
   }
 
-  /* Card */
   .book-card {
     padding: 12px;
-    border-radius: 10px;
+    border-radius: 12px;
   }
 
-  /* Image */
   .book-image {
-    width: 100%;
     height: 180px;
-    margin-bottom: 12px;
   }
 
-  /* Text */
   .book-title {
     font-size: 15px;
-    margin-bottom: 6px;
   }
 
   .book-author {
     font-size: 13px;
-    margin-bottom: 8px;
-  }
-
-  /* Footer */
-  .book-footer {
-    margin-top: 10px;
   }
 
   .book-price {
@@ -166,11 +155,10 @@ textarea {
 
   .book-condition {
     font-size: 11px;
-    padding: 3px 6px;
   }
 
   .view-btn {
-    padding: 6px 8px;
+    padding: 7px 10px;
     font-size: 12px;
   }
 }

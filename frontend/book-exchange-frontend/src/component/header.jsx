@@ -25,7 +25,7 @@ export default function Header() {
 
       {/* NAV */}
       <nav className="center-nav">
-        <a href="/" className="nav-link">Explore</a>
+        <a href="/home" className="nav-link">Explore</a>
         {isLoggedIn && (
         <a href="/addBook" className="nav-link">Add Book</a>
         )}

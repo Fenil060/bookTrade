@@ -4,6 +4,8 @@
 
 body {
   font-family: 'Poppins', sans-serif;
+  background: #121212;
+  color: #EDEDED;
 }
 
 button,
@@ -19,18 +21,18 @@ textarea {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(180deg, #f4f5f7 0%, #ebecf0 100%);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Helvetica, Arial, sans-serif;
+  background: linear-gradient(180deg, #121212 0%, #0d0d0d 100%);
 }
 
+/* Form Card */
 .auth-form {
   width: 100%;
   max-width: 420px;
-  background: #ffffff;
-  padding: 36px; /* SAME on all sides */
-  border-radius: 10px;
-  box-shadow: 0 12px 32px rgba(9, 30, 66, 0.25);
+  background: #1E1E1E;
+  padding: 36px;
+  border-radius: 14px;
+  border: 1px solid #2A2A2A;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
 }
 
 /* Title */
@@ -38,7 +40,7 @@ textarea {
   text-align: center;
   font-size: 24px;
   font-weight: 600;
-  color: #172b4d;
+  color: #EDEDED;
   margin-bottom: 28px;
 }
 
@@ -47,33 +49,44 @@ textarea {
   width: 100%;
   padding: 14px 16px;
   margin-bottom: 16px;
-  border-radius: 6px;
-  border: 1px solid #dfe1e6;
+  border-radius: 10px;
+  border: 1px solid #2A2A2A;
+  background: #121212;
+  color: #EDEDED;
   font-size: 14px;
+  transition: 0.2s ease;
 }
 
+/* Placeholder */
+.auth-form input::placeholder {
+  color: #A1A1A1;
+}
+
+/* Focus */
 .auth-form input:focus {
   outline: none;
-  border-color: #0052cc;
-  box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.25);
+  border-color: #1A73E8;
+  box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.25);
 }
 
 /* Primary button */
 .auth-form button {
   width: 100%;
   padding: 14px;
-  background: #0052cc;
+  background: #1A73E8;
   color: #ffffff;
   border: none;
-  border-radius: 6px;
+  border-radius: 10px;
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
   margin-top: 8px;
+  transition: 0.2s ease;
 }
 
 .auth-form button:hover {
-  background: #0747a6;
+  background: #1665C1;
+  transform: translateY(-1px);
 }
 
 /* Divider */
@@ -81,7 +94,7 @@ textarea {
   display: flex;
   align-items: center;
   margin: 26px 0;
-  color: #6b778c;
+  color: #A1A1A1;
   font-size: 13px;
   font-weight: 500;
 }
@@ -91,7 +104,7 @@ textarea {
   content: "";
   flex: 1;
   height: 1px;
-  background: #dfe1e6;
+  background: #2A2A2A;
 }
 
 .divider::before {
@@ -107,12 +120,12 @@ textarea {
   text-align: center;
   margin-top: 20px;
   font-size: 14px;
-  color: #6b778c;
+  color: #A1A1A1;
 }
 
 /* Links */
 .auth-form a {
-  color: #0052cc;
+  color: #1A73E8;
   font-weight: 600;
   text-decoration: none;
 }
@@ -121,10 +134,11 @@ textarea {
   text-decoration: underline;
 }
 
-/* Google button wrapper */
+/* Google button iframe */
 .auth-form iframe {
   width: 100% !important;
   border-radius: 999px !important;
+  margin: 0 auto;
 }
 
 /* Google button container */
@@ -133,51 +147,40 @@ textarea {
   border-radius: 999px !important;
 }
 
-/* Extra spacing */
-.auth-form iframe {
-  margin: 0 auto;
-}
-
-
 /* Mobile Responsive */
 @media (max-width: 600px) {
   .auth-container {
     padding: 16px;
-    align-items: flex-start; /* better scroll on mobile */
+    align-items: flex-start;
   }
 
   .auth-form {
     max-width: 100%;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: none; /* cleaner mobile UI */
+    border-radius: 12px;
+    box-shadow: none;
   }
 
-  /* Title */
   .auth-form h2 {
     font-size: 20px;
     margin-bottom: 20px;
   }
 
-  /* Inputs */
   .auth-form input {
     padding: 12px 14px;
     font-size: 14px;
   }
 
-  /* Button */
   .auth-form button {
     padding: 12px;
     font-size: 14px;
   }
 
-  /* Divider */
   .divider {
     margin: 18px 0;
     font-size: 12px;
   }
 
-  /* Footer text */
   .auth-form p {
     font-size: 13px;
   }

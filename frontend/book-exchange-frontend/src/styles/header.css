@@ -13,7 +13,7 @@ textarea {
 .bt-header {
   height: 70px;
   padding: 0 32px;
-  background: #ffffff;
+  background: #1E1E1E;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -28,7 +28,7 @@ textarea {
 }
 
 .logo-book {
-  color: #202124;
+  color: #e53935;
 }
 
 .logo-trade {
@@ -43,7 +43,7 @@ textarea {
 
 .nav-link {
   text-decoration: none;
-  color: #000;        /* black */
+  color: white;        /* white */
   font-size: 20px;    /* bigger but not breaking layout */  
   transition: 0.2s ease;
 }
@@ -74,7 +74,7 @@ textarea {
 
 /* LOGIN */
 .auth-links a:first-child {
-  color: #1a73e8;
+  color: White;
   border: 1px solid #1a73e8;
 }
 
@@ -82,6 +82,7 @@ textarea {
 .auth-links .signup {
   background: #1a73e8;
   color: #fff;
+  border: 1px solid #1a73e8;
 }
 
 /* PROFILE */

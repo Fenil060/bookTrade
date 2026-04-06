@@ -1,5 +1,7 @@
 body {
   font-family: 'Poppins', sans-serif;
+  background: #121212;
+  color: #EDEDED;
 }
 
 button,
@@ -9,76 +11,102 @@ textarea {
   font-family: inherit;
 }
 
+/* Container */
 .auth-container {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #f5f7fa;
+  background: #121212;
 }
 
+/* Form Card */
 .auth-form {
   width: 100%;
   max-width: 380px;
-  background: #fff;
+  background: #1E1E1E;
   padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 14px;
+  border: 1px solid #2A2A2A;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
 }
 
+/* Heading */
 .auth-form h2 {
   text-align: center;
   margin-bottom: 20px;
+  color: #EDEDED;
 }
 
+/* Inputs */
 .auth-form input {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   margin-bottom: 15px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+  border-radius: 10px;
+  border: 1px solid #2A2A2A;
+  background: #121212;
+  color: #EDEDED;
+  outline: none;
+  transition: 0.2s ease;
 }
 
+/* Placeholder */
+.auth-form input::placeholder {
+  color: #A1A1A1;
+}
+
+/* Focus */
+.auth-form input:focus {
+  border-color: #1A73E8;
+  box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.2);
+}
+
+/* Button */
 .auth-form button {
   width: 100%;
-  padding: 10px;
-  background: #1a73e8;
+  padding: 12px;
+  background: #1A73E8;
   color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s ease;
 }
 
 .auth-form button:hover {
-  background: #1558c0;
+  background: #1665C1;
+  transform: translateY(-1px);
 }
 
+/* Text */
 .auth-form p {
   text-align: center;
   margin-top: 15px;
+  color: #A1A1A1;
 }
 
-.auth-form a {
-  color: #1a73e8;
-  text-decoration: none;
-}
-
+/* Links */
+.auth-form a,
 .auth-form span {
-    color: #1a73e8;
+  color: #1A73E8;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /* Mobile Responsive */
 @media (max-width: 600px) {
   .auth-container {
     padding: 16px;
-    align-items: flex-start; /* better on mobile */
+    align-items: flex-start;
   }
 
   .auth-form {
     max-width: 100%;
     padding: 20px;
-    border-radius: 6px;
-    box-shadow: none; /* cleaner mobile UI */
+    border-radius: 12px;
+    box-shadow: none;
   }
 
   .auth-form h2 {
